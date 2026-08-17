@@ -1,0 +1,30 @@
+.button {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 22px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #1d4ed8;
+}
+
+.button.selecionado {
+  background: #021f70;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+@media (max-width: 600px) {
+    .button {
+        flex-direction: column;
+    }
+}

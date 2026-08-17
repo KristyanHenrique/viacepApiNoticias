@@ -1,0 +1,57 @@
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  color: #475569;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+#botaoNoticias{
+  margin-left: 2%;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 12px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .button {
+    flex-direction: column;
+  }
+
+  .button button {
+    height: 46px;
+  }
+
+  .address-grid {
+    grid-template-columns: 1fr;
+  }
+}
