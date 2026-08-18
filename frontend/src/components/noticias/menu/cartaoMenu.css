@@ -1,7 +1,20 @@
+.containerCartaoMenu {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+}
+
+
+
 .form-group label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
+}
+
+#botaoListar{
+  margin-right: 2%;
 }
 
 .loading {

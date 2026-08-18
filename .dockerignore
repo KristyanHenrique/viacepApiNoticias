@@ -1,0 +1,25 @@
+# Git
+.git
+.gitignore
+
+# Laravel
+backend/storage/logs/*
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+
+# Composer
+backend/vendor
+
+# Node
+frontend/node_modules
+frontend/build
+frontend/.cache
+
+# IDE
+.idea
+.vscode
+
+# Sistema
+.DS_Store
+Thumbs.db

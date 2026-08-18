@@ -1,0 +1,58 @@
+.tabelaNoticias {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabelaNoticias th,
+.tabelaNoticias td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tabelaNoticias th {
+    background: #f8fafc;
+    font-weight: 600;
+}
+
+.tabelaNoticias td {
+    vertical-align: middle;
+}
+
+/* Botão base */
+
+.tabelaNoticias button {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.tabelaNoticias button:active {
+    transform: scale(0.97);
+}
+
+/* Editar */
+
+.tabelaNoticias .botaoEditar {
+    background: #2563eb;
+}
+
+.tabelaNoticias .botaoEditar:hover {
+    background: #1d4ed8;
+}
+
+/* Excluir */
+
+.tabelaNoticias .botaoExcluir {
+    background: #dc2626;
+}
+
+.tabelaNoticias .botaoExcluir:hover {
+    background: #b91c1c;
+}

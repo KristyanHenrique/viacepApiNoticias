@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import CartaoMenu from './components/menu/cartaoMenu';
 import ConsultarEndereco from './components/consultaEnd/cartaoConsultaCep';
-import Noticias from './components/noticias/cartaoNoticias';
+import Noticias from './components/noticias/index';
 
 function App() {
     const [opcao, setOpcao] = useState('');
