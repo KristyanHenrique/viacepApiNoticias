@@ -53,94 +53,91 @@ function App() {
     }, []);
 
     return (
-        <main className="container">
-            <section className="cartaoMenu">
-                <CartaoMenu
-                    opcao={opcao}
-                    setOpcao={setOpcao}
-                    className="cartaoMenu"
-                />
-            </section>
-                <section className="areaPrincipal">
-                    {opcao === 'cep' && (
-                        <ConsultarEndereco />
-                    )}
-                    {opcao === 'noticias' && (
-                        <Noticias noticias={notificacoes} />
-                    )}
-                    <section className="notificacoes">
-                    <div className="notificacoesCabecalho">
-                        <div>
-                            <span className="notificacoesTitulo">
-                                Notificações
-                            </span>
-                            <span className="notificacoesSubtitulo">
-                                Atualização automática
-                            </span>
-                        </div>
-                        <span className="status">
-                            <span
-                                className={`statusPonto ${
-                                    carregando ? 'carregando' : ''
-                                }`}
-                            />
-                            Online
+    <main className="container">
+        <section className="cartaoMenu">
+            <CartaoMenu
+                opcao={opcao}
+                setOpcao={setOpcao}
+            />
+        </section>
+
+        <section className="areaPrincipal">
+            {opcao === 'cep' && (
+                <ConsultarEndereco />
+            )}
+            {opcao === 'noticias' && (
+                <Noticias noticias={notificacoes} />
+            )}
+            <section className="notificacoes">
+                <div className="notificacoesCabecalho">
+                    <div>
+                        <span className="notificacoesTitulo">
+                            Notificações
+                        </span>
+                        <span className="notificacoesSubtitulo">
+                            Atualização automática
                         </span>
                     </div>
+                    <span className="status">
+                        <span
+                            className={`statusPonto ${
+                                carregando ? 'carregando' : ''
+                            }`}
+                        />
+                        Online
+                    </span>
+                </div>
 
-                    <div className="notificacoesLista">
-                        {notificacoes.length === 0 ? (
-                            <div className="notificacaoVazia">
-                                <div className="iconeVazio">
+                <div className="notificacoesLista">
+                    {notificacoes.length === 0 ? (
+                        <div className="notificacaoVazia">
+                            <div className="iconeVazio">
+                                🔔
+                            </div>
+                            <strong>
+                                Nenhuma notificação
+                            </strong>
+                            <span>
+                                Novas notícias aparecerão aqui automaticamente.
+                            </span>
+                        </div>
+                    ) : (
+                        notificacoes.map((noticia, index) => (
+                            <article
+                                className="notificacao"
+                                key={`${noticia.id}-${index}`}
+                            >
+                                <div className="notificacaoIcone">
                                     🔔
                                 </div>
-                                <strong>
-                                    Nenhuma notificação
-                                </strong>
-                                <span>
-                                    Novas notícias aparecerão aqui automaticamente.
-                                </span>
-                            </div>
-                        ) : (
-                            notificacoes.map((noticia, index) => (
-                                <article
-                                    className="notificacao"
-                                    key={`${noticia.id}-${index}`}
-                                >
-                                    <div className="notificacaoIcone">
-                                        🔔
+                                <div className="notificacaoConteudo">
+                                    <div className="notificacaoTopo">
+                                        <strong>
+                                            {noticia.titulo}
+                                        </strong>
+                                        <span>
+                                            Nova
+                                        </span>
                                     </div>
-                                    <div className="notificacaoConteudo">
-                                        <div className="notificacaoTopo">
-                                            <strong>
-                                                {noticia.titulo}
-                                            </strong>
-                                            <span>
-                                                Nova
-                                            </span>
-                                        </div>
-                                        <p>
-                                            {noticia.descricao}
-                                        </p>
-                                        {noticia.created_at && (
-                                            <small>
-                                                {new Date(
-                                                    noticia.created_at
-                                                ).toLocaleString('pt-BR')}
-                                            </small>
-                                        )}
-                                    </div>
-                                </article>
-                            ))
-                        )}
-                    </div>
-                </section>
+                                    <p>
+                                        {noticia.descricao}
+                                    </p>
+                                    {noticia.created_at && (
+                                        <small>
+                                            {new Date(
+                                                noticia.created_at
+                                            ).toLocaleString('pt-BR')}
+                                        </small>
+                                    )}
+                                </div>
+                            </article>
+                        ))
+                    )}
+                </div>
             </section>
-            
-            
-            
-        </main>
-    );
+        </section>
+    </main>
+);
 }
 
 export default App;
