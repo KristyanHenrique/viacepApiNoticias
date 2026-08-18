@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Noticia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class NoticiaController extends Controller
 {
@@ -13,10 +14,18 @@ class NoticiaController extends Controller
 
         $noticias = Noticia::query()
             ->when($request->filled('titulo'), function ($query) use ($request) {
-                $query->where('titulo', 'like', '%' . $request->titulo . '%');
+                $query->where(
+                    'titulo',
+                    'like',
+                    '%' . $request->titulo . '%'
+                );
             })
             ->when($request->filled('descricao'), function ($query) use ($request) {
-                $query->where('descricao', 'like', '%' . $request->descricao . '%');
+                $query->where(
+                    'descricao',
+                    'like',
+                    '%' . $request->descricao . '%'
+                );
             })
             ->orderByDesc('id')
             ->paginate($limit);
@@ -33,17 +42,35 @@ class NoticiaController extends Controller
 
         $noticia = Noticia::create($dados);
 
+        $notificacoes[] = $noticia->toArray();
+
+        Cache::put(
+            'noticias',
+            $notificacoes,
+            now()->addMinutes(10)
+        );
+
         return response()->json(
             $noticia,
             201
         );
     }
 
+    public function cache()
+    {
+        $noticias = Cache::get('noticias', []);
+
+        Cache::forget('noticias');
+
+        return response()->json([
+            'noticias' => $noticias,
+            'cache_limpo' => true,
+        ]);
+    }
+
     public function show(Noticia $noticia)
     {
-        return response()->json(
-            $noticia
-        );
+        return response()->json($noticia);
     }
 
     public function update(Request $request, Noticia $noticia)
@@ -55,9 +82,7 @@ class NoticiaController extends Controller
 
         $noticia->update($dados);
 
-        return response()->json(
-            $noticia
-        );
+        return response()->json($noticia);
     }
 
     public function destroy(Noticia $noticia)

@@ -56,3 +56,170 @@
 .tabelaNoticias .botaoExcluir:hover {
     background: #b91c1c;
 }
+
+/* =========================
+   BOTÕES GERAIS
+   ========================= */
+
+button {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+
+/* =========================
+   BOTÃO EDITAR
+   ========================= */
+
+.botaoEditar {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.botaoEditar:hover {
+    background-color: #1d4ed8;
+}
+
+.botaoEditar:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   BOTÃO EXCLUIR
+   ========================= */
+
+.botaoExcluir {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.botaoExcluir:hover {
+    background-color: #b91c1c;
+}
+
+.botaoExcluir:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   PAGINAÇÃO
+   ========================= */
+
+.paginacaoNoticias {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.paginacaoNoticias button {
+    background-color: #374151;
+    color: #ffffff;
+    min-width: 90px;
+}
+
+.paginacaoNoticias button:hover:not(:disabled) {
+    background-color: #1f2937;
+}
+
+.paginacaoNoticias button:disabled {
+    background-color: #d1d5db;
+    color: #6b7280;
+    cursor: not-allowed;
+}
+
+.paginacaoNoticias span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+
+/* =========================
+   FILTROS
+   ========================= */
+
+.filtrosNoticias {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtrosNoticias input {
+    padding: 9px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+.filtrosNoticias input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.filtrosNoticias button {
+    background-color: #2563eb;
+    color: white;
+}
+
+.filtrosNoticias button:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* Botão Limpar */
+
+.filtrosNoticias button:last-child {
+    background-color: #6b7280;
+}
+
+.filtrosNoticias button:last-child:hover {
+    background-color: #4b5563;
+}
+
+
+/* =========================
+   SELECT
+   ========================= */
+
+.quantidadePagina {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.quantidadePagina label {
+    font-size: 14px;
+    color: #374151;
+}
+
+.quantidadePagina select {
+    padding: 7px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+   ========================= */
+
+.infoPaginacao {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
